@@ -1,0 +1,65 @@
+﻿<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <link style="background-color:white; border-radius:50%; font-size:50px" rel="shortcut icon" type="image/png" href="~/Assests/assets/images/favicon.ico"/>
+    <script src="~/Assests/assets/js/layout.js"></script>
+    <link href="~/Assests/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Assests/assets/css/icons.min.css" rel="stylesheet" />
+    <link href="~/Assests/assets/css/app.min.css" rel="stylesheet" />
+    <link href="~/Assests/assets/css/custom.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <style>
+        #loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+    </style>
+    <div>
+        @{ Html.RenderPartial("~/Views/Shared/RentPlanet_Layout/_Header.cshtml");}
+        @RenderBody()
+        @{ Html.RenderPartial("~/Views/Shared/RentPlanet_Layout/_Footer.cshtml");}
+        <div id="loader" style="display:none">
+            <div class="spinner-border text-primary" style="font-size:50px" role="status" title="Loading.."></div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/JS/common.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Assests/assets/js/cdnjs.cloudflare.com_ajax_libs_jquery_3.3.0_jquery.min.js"></script>
+    <script src="~/Assests/assets/js/jquery.signalR.min.js"></script>
+    <script src="~/Scripts/ajax.googleapis.com_ajax_libs_jquery_2.1.1_jquery.min.js"></script>
+    <script src="~/Assests/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/cdnjs.cloudflare.com_ajax_libs_microsoft-signalr_3.1.6_signalr.min.js"></script>
+    <script src="~/Assests/assets/libs/node-waves/waves.min.js"></script>
+    <script src="~/Assests/assets/libs/feather-icons/feather.min.js"></script>
+    <script src="~/Assests/assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+    <script src="~/Assests/assets/js/plugins.js"></script>
+    <script src="~/Assests/assets/libs/apexcharts/apexcharts.min.js"></script>
+    <script src="~/Assests/assets/js/app.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+<script>
+    $('.load').click(function () {
+        $("#loader").show();
+        setTimeout(function () {
+            $("#loader").hide();
+        }, 8000); 
+    });
+
+</script>

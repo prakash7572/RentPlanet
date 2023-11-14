@@ -1,0 +1,176 @@
+﻿@{
+    Layout = "~/Views/RentPlanet/_Layout.cshtml";
+}
+@model List<RentPlannet.Models.ManageRoom>
+<head> 
+    <title>My Booking |  Admin & Dashboard Template</title>
+</head>
+<style>
+    table, thead, th td {
+        font-size: 12px;
+    }
+</style>
+<div class="p-5"></div>
+<div class="bg-light-subtle rounded p-4 mx-auto col-md-10 rounded">
+    <div class="row">
+        <div>
+            <span class="text-secondary h4" style="font-family: Georgia, serif;margin-bottom:-100px"><i class="fa fa-book"></i> Manage Room Details</span>
+        </div>
+        <div class="text-end" style="margin-top:-30px">
+            <button type="button" class="btn btn-success" id="ClearData" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Add New <i class="fa fa-plus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog col-md-12">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        <span class="text-secondary h4" style="font-family: Georgia, serif;margin-bottom:-100px"><i class="fa fa-book"></i> Manage Room Details</span>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-control" id="ManageRoom" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="">Country</label><span class="text-danger">*</span>
+                                <select class="form-control" id="Country" name="Country">
+                                    <option value="0">Select Country</option>
+                                    <option value="1" selected>Bharat</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="">State</label><span class="text-danger">*</span>
+                                <select class="form-control" id="State" name="State">
+                                    <option value="0">Select State</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="">City</label><span class="text-danger">*</span>
+                                <select class="form-control" id="City" name="City">
+                                    <option value="0">Select City</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="">Room Location</label><span class="text-danger">*</span>
+                                <input type="text" class="form-control" id="RoomLocation" name="RoomLocation" placeholder="Enter Room Location" autocomplete="off" required>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="">Zip/Postel Code</label><span class="text-danger">*</span>
+                                <input type="text" class="form-control" id="PostelCode" name="PostelCode" placeholder="Enter PostelCode" autocomplete="off" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="">Metro</label>
+                                <input type="text" class="form-control data" id="Metro" name="Metro" placeholder="Enter Near Metro" autocomplete="off" maxlength="2" required>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="">Shoping</label>
+                                <input type="text" class="form-control data" id="Shop" name="Shop" placeholder="Enter Near Shoping" autocomplete="off" maxlength="2" required>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="">Religion</label>
+                                <input type="text" class="form-control data" id="Religion" name="Religion" placeholder="Enter Near Religion" autocomplete="off" maxlength="2" required>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="">Hospital</label><span class="text-danger">*</span>
+                                <input type="text" class="form-control data" id="Hospital" name="Hospital" placeholder="Enter Near Hospital" autocomplete="off" size="2" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="">Contact</label><span class="text-danger">*</span>
+                                <input type="text" class="form-control" id="Contact" name="Contact" placeholder="Enter Contact" value="+91" autocomplete="off" maxlength="13" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="">File1</label><span class="text-danger">*</span>
+                                <input type="file" name="File1" id="File1" class="form-control" onchange='uploadImage(0)' required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="">File2</label><span class="text-danger">*</span>
+                                <input type="file" name="File2" id="File2" class="form-control" required />
+                            </div>
+                            <div class="col-md-4">
+                                <label for="">File3</label><span class="text-danger">*</span>
+                                <input type="file" name="File3" id="File3" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <label for="">Price's Room</label><span class="text-danger">*</span>
+                                <input type="text" class="form-control data" id="PricesRoom" name="PricesRoom" placeholder="Enter Room Price" autocomplete="off" required>
+                            </div>
+                            <div class="col-md-8">
+                                <label for="">Description</label><span class="text-danger">*</span>
+                                <textarea type="text" class="form-control" rows="1" name="Description" id="Description" placeholder="About Your Room & Location"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                        </div>
+                        <div class="col-md text-end mt-3">
+                            <input type="hidden" id="ID" name="ID" />
+                            <button type="button" class="btn btn-secondary" id="btnAdd" name="Sumbit" onclick="return Add();">Add</button>
+                            <button type="button" class="btn btn-success" id="btnUpdate" name="Sumbit" style="display:none;" onclick="UpdateRooms();">Update</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row table-sm mx-auto mt-3 shadow-lg p-3 mb-5 bg-white rounded table-responsive">
+        <table class="table table-bordered table-hover" style="white-space:nowrap">
+            <thead>
+                <tr style="background-color:#EDECEC">
+                    <th>Country</th>
+                    <th>State</th>
+                    <th>City</th>
+                    <th>Roomlocation</th>
+                    <th>Zip/PostelCode</th>
+                    <th>Contact</th>
+                    <th>PriceRoom</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @if (item.Country == "0" || item.Country == "1")
+                            {<img src="~/Assests/assets/images/Flag_of_India.png" height="22" width="30" />}
+                        </td>
+                        <td>@item.State</td>
+                        <td>@item.City</td>
+                        <td>@item.RoomLocation</td>
+                        <td>@item.PostelCode</td>
+                        <td>@item.Contact</td>
+                        <td>@Math.Round(item.PricesRoom, 2)</td>
+                        <td>@item.Description</td>
+                        <td><a href="#" onclick="return Getid(@item.RoomId)" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="fa fa-edit text-danger"></span></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="p-3"></div>
+@section scripts{
+    <script>
+        var file;
+        var imagearray = [];
+        function uploadImage(Imageid) {
+            debugger
+            var fileUpload = document.getElementById("Fimage" + Imageid);
+            file = fileUpload.files[i];
+            imagearray.push(file)
+        }
+
+    </script>
+    } 

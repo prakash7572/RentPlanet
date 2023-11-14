@@ -1,0 +1,110 @@
+﻿@model RentPlannet.Models.Profile
+@{
+    Layout = "~/Views/shared/_Layout.cshtml";
+    <title>Sign Up |  Admin & Dashboard Template</title>
+}
+<div class="auth-page-wrapper  d-flex  align-items-center min-vh-100">
+    <div class="auth-page-content overflow-hidden pt-lg-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card overflow-hidden m-0" style="height:500px">
+                        <div class="row justify-content-center g-0">
+                            <div class="col-lg-6">
+                                <div class="p-lg-5 p-4 auth-one-bg h-100">
+                                    <div class="position-relative h-100 d-flex flex-column">
+                                        <div class="mb-4">
+                                            <a href="index.html" class="d-block">
+                                            </a>
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div id="qoutescarouselIndicators" class="carousel slide" data-bs-ride="carousel">
+                                                <div class="carousel-indicators">
+                                                    <button type="button" data-bs-target="#qoutescarouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                                    <button type="button" data-bs-target="#qoutescarouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                    <button type="button" data-bs-target="#qoutescarouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                                </div>
+                                                <div class="carousel-inner text-center text-white-50 pb-5">
+                                                    <div class="carousel-item active">
+                                                        <p class="fs-15 fst-italic">" Great! Clean code, clean design, easy for customization. Thanks very much! "</p>
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <p class="fs-15 fst-italic">" The theme is really great with an amazing customer support."</p>
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <p class="fs-15 fst-italic">" Great! Clean code, clean design, easy for customization. Thanks very much! "</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="p-lg-5 p-4">
+                                    <div>
+                                        <h5 class="text-secondary border-light"style="font-family: Georgia, serif;">Register Account</h5>
+                                        <p class="text-muted">Get your Free Account now.</p>
+                                    </div>
+
+                                    <div class="mt-4">
+
+                                        @using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
+                                        {
+                                            <form class="needs-validation">
+
+                                                <div class="mb-3">
+                                                    <label for="useremail" class="form-label">Email <span class="text-danger">*</span></label>
+                                                    <input type="email" class="form-control" id="Email" name="Email" placeholder="Enter email address" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter email
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="username" class="form-label">UserName<span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" id="userName" name="UserName" placeholder="Enter email address" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter username
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="Password">Password</label><span class="text-danger">*</span>
+                                                    <div class="position-relative auth-pass-inputgroup">
+                                                        <input type="password" class="form-control pe-5 password-input" placeholder="Enter password" id="Password" name="Password" aria-describedby="passwordInput" @*pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"*@ required>
+                                                        <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="submit" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                                                        <div class="invalid-feedback">
+                                                            Please enter password
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-4">
+                                                    <p class="mb-0 fs-12 text-muted fst-italic">By registering you agree to the Unknown <a href="#" class="text-primary text-decoration-underline fst-normal fw-medium">Terms of Use</a></p>
+                                                </div>
+                                                <div class="mt-4 text-end">
+                                                    <button class="btn btn-secondary w-45  loader" type="submit">Sign Up</button>
+                                                    <a href="/home/index" class="btn btn-success w-40  loader">Go Back Home</a>
+                                                </div>
+                                                <div class="mt-4 text-center">
+                                                    <div class="signin-other-title">
+                                                        <h5 class="fs-13 mb-4 title text-muted">Create account with Our Planet</h5>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        }
+                                    </div>
+
+                                    <div class="mt-5 text-center">
+                                        <p class="mb-0">Already have an account ? <a href="file:///D:/PROJACTS/NewForRent/sigin.html" class="fw-semibold text-primary text-decoration-underline"> Signin</a> </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+﻿@{
+    Layout = "~/Views/RentPlanet/_Layout.cshtml";
+}
+@model List<RentPlannet.Models.ManageRoom>
+<title>Rooms |  Admin & Dashboard Template</title>
+<div class="p-5"></div>
+
+
+          
+<div class="bg-light-subtle rounded p-5 mx-auto col-md-11 rounded">
+    @using (Html.BeginForm("ManageRooms", "ManageRoom", FormMethod.Get))
+    {
+        <div class="row">
+            <div class="col-md-3">
+                <select class="form-control">
+                    <option value="0">Select Country</option>
+                    <option value="1" selected>Bharat</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-control" id="State" name="State">
+                    <option value="0">Select State</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-control" id="City" name="City">
+                    <option value="0">Select City</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <input type="submit" class="btn btn-secondary fa fa-search" value="Search">
+            </div>
+        </div>
+
+    }
+    @if (Model.Count > 0)
+    {
+        foreach (var item in Model)
+        {
+            <div class="row mt-5 shadow-lg p-3 mb-5 bg-white rounded" style="margin-left:230px">
+                <div class="col-md-4">
+                    <div id="carouselExampleAutoplaying" class="carousel slide border rounded" data-bs-ride="carousel" style="height:300px;width:320px">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="~/Assests/assets/images/auth-one-bg.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="~/Assests/assets/images/user-illustarator-1.png" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="~/Assests/assets/images/faq-img.png" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                            <span class="carousel-control-next-icon text-dark" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <a href="#"><h3 class="text-secondary" style="font-family: Georgia, serif;margin-left:40px">@item.RoomLocation</h3></a>
+                    <div class="text-end" style="font-size:22px;margin-top:-45px;"><i class="fa fa-rupee"></i><b title="Room's Price'"> @Math.Round(item.PricesRoom, 2)</b></div><br />
+                    <div style="width:450px;margin-left:40px">
+                        @item.Description
+                    </div>
+                    <div style="font-size:18px;margin-top:100px;margin-left:30px">
+                        <span style="font-family: Georgia, serif">Places nearby</span>
+                        <span class="text-secondary">
+                            <span class="btn btn-outline-light text-secondary border rounded-pill" title="Metro"><i class="fa fa-subway" aria-hidden="true"></i><span> @item.Metro  Metrao</span></span>
+                            <span class="btn btn-outline-light text-secondary border rounded-pill" title="Shoping"><i class="fa fa-shopping-cart" aria-hidden="true"> @item.Shop   Shoping</i></span>
+                            <span class="btn btn-outline-light text-secondary border rounded-pill" title="Religion"><i class="fa fa-map-marker" aria-hidden="true"> @item.Religion  Religion</i></span>
+                            <span class="btn btn-outline-light text-secondary border rounded-pill" title="Hospital"><i class="fa fa-hospital-o" aria-hidden="true">@item.Hospital     Hospital</i></span>
+                        </span>
+                    </div>
+                    <div class="text-end" style="margin-top:10px">
+                        <a class="text-secondary h5" style="font-family: Georgia, serif;margin-right:10px"><span id="view">View Contact </span><span id="contact">@item.Contact</span></a>
+                        <sapn class="btn btn-secondary rounded-pill"><i style="font-size:17px" class="fa fa-phone" aria-hidden="true"></i>  Contact Dailer</sapn>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="col-md-10 border  p-2">
+            <span class="bg-light-subtle">Data Not Found !!!!</span>
+        </div>
+    }
+    
+
+</div>
+<div class="p-3"></div>

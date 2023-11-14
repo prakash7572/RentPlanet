@@ -1,0 +1,214 @@
+﻿@{
+    Layout = "~/Views/Account/_Layout.cshtml";
+}
+<style>
+    p {
+        font-family: Georgia, serif;
+        color: black;
+    }
+</style>
+<title>DashBord | Admin & Dashboard Template</title>
+<div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="NotificationModalbtn-close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mt-2 text-center">
+                    <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
+                    <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+                        <h4>Are you sure ?</h4>
+                        <p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p>
+                    </div>
+                </div>
+                <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                    <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn w-sm btn-danger" id="delete-notification">Yes, Delete It!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between border border-secondary border-top-0">
+                        <h4 class="mb-sm-0 text-secondary" style="font-family: Georgia, serif">Dashboard</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row project-wrapper">
+                <div class="col-xxl-8">
+                    <div class="row">
+                        <div class="col-xl-3">
+                            <a href="/account/signin">
+                                <div class="card card-animate">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-sm flex-shrink-0">
+                                                <span class="avatar-title bg-primary-subtle text-primary rounded-2 fs-2">
+                                                    <img src="../../Assests/assets/images/users/56299654b31a26cf0274ea50849f1243.jpg" class="text-primary" style="height:50px" />
+                                                </span>
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden ms-3">
+                                                <p class="text-uppercase fw-medium text-muted text-truncate mb-3" style="font-family: Georgia, serif">Search Room</p>
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <h4 class="fs-4 flex-grow-1 mb-0"><span class="counter-value" data-target="825">.........  <i class="fa fa-search" aria-hidden="true"></i></span></h4>
+                                                    <span class="badge bg-secondary-subtle text-secondary fs-12"><i class="ri-arrow-up-s-line fs-13 align-middle me-1"></i>9.58 %</span>
+
+                                                </div>
+                                                <p class="text-muted text-truncate mb-0 ml-10px">Click Here</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-xl-3">
+                            <a href="/account/signin">
+                                <div class="card card-animate">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-sm flex-shrink-0">
+                                                <span class="avatar-title bg-primary-subtle text-primary rounded-2 fs-2">
+                                                    <img src="~/Assests/assets/images/users/images (1).png" class="text-primary" style="height:50px" />
+                                                </span>
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden ms-3">
+                                                <p class="text-uppercase fw-medium text-muted text-truncate mb-3">Active Person</p>
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <h4 class="fs-4 flex-grow-1 mb-0"><span class="counter-value" data-target="825" id="counter">87534</span></h4>
+                                                    <span class="badge bg-danger-subtle text-danger fs-12"><i class="ri-arrow-down-s-line fs-13 align-middle me-1"></i>5.02 %</span>
+                                                </div>
+                                                <p class="text-muted text-truncate mb-0">Person this month</p>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body -->
+                                </div>
+                                </a>
+                        </div><!-- end col -->
+
+                        <div class="col-xl-3">
+                            <a href="/account/signin">
+                                <div class="card card-animate">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-sm flex-shrink-0">
+                                                <span class="avatar-title bg-warning-subtle text-warning rounded-2 fs-2">
+                                                    <img src="~/Assests/assets/images/users/images (3).png" class="bg-light" style="height:50px" />
+                                                </span>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <p class="text-uppercase fw-medium text-muted mb-3">New Leads</p>
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <h4 class="fs-4 flex-grow-1 mb-0">
+                                                        <span class="counter-value" data-target="7522">
+                                                            87432
+                                                        </span>
+                                                    </h4>
+                                                    <span class="badge bg-secondary-subtle text-secondary fs-12"><i class="ri-arrow-up-s-line fs-13 align-middle me-1"></i>3.58 %</span>
+                                                </div>
+                                                <p class="text-muted mb-0">Leads this month</p>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body -->
+                                </div>
+                                </a>
+                        </div><!-- end col -->
+
+                        <div class="col-xl-3">
+                            <a href="/account/signin">
+                                <div class="card card-animate">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-sm flex-shrink-0">
+                                                <span class="avatar-title bg-info-subtle text-info rounded-2 fs-2">
+                                                    <img src="~/Assests/assets/images/users/clock.png" class="bg-light" style="height:50px" />
+                                                </span>
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden ms-3">
+                                                <p class="text-uppercase fw-medium text-muted text-truncate mb-3">Total Hours</p>
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <h4 class="fs-4 flex-grow-1 mb-0"><span class="counter-value" data-target="168">46:22:13</span>h <span class="counter-value" data-target="40"></span></h4>
+                                                    <span class="badge bg-danger-subtle text-danger fs-12"><i class="ri-arrow-down-s-line fs-13 align-middle me-1"></i>10.35 %</span>
+                                                </div>
+                                                <p class="text-muted text-truncate mb-0">Work this month</p>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body -->
+                                </div>
+                                </a>
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="row">
+
+                                    <div class="card-body pt-0 col-md-1">
+                                        <img src="~/Assests/assets/images/prem-mandir-temple.jpg" height="400" />
+                                    </div>
+                                    <div class="card-body pt-0 col-md-3">
+                                        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                            </div>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="~/Assests/assets/images/India-Gate.jpg" class="d-block w-100 rounded" alt="..." height="400">
+                                                    <div class="carousel-caption d-none d-md-block">
+                                                        <h3 class="text-white">India Gate</h3>
+                                                        <p class="text-white">City in Delhi.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="~/Assests/assets/images/97.jpg" class="d-block w-100 rounded" alt="..." height="400">
+                                                    <div class="carousel-caption d-none d-md-block">
+                                                        <h3 class="text-white">Chhatrapati Shivaji Maharaj Terminus</h3>
+                                                        <p class="text-white">City in Mumbai</p>
+                                                    </div>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="~/Assests/assets/images/lpcc3atg04021.jpg" class="d-block w-100 rounded" alt="..." height="400">
+                                                    <div class="carousel-caption d-none d-md-block">
+                                                        <h3 class="text-white">
+                                                            Varanasi
+                                                        </h3>
+                                                        <p class="text-white">City In Utter Pradesh.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</div>
+<button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+    <i class="ri-arrow-up-line"></i>
+</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
