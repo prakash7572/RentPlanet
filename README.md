@@ -22,6 +22,7 @@
   - ASP.NET MVC
   - C#
   - Entity Framework
+  - Linq
   - SQL Server
 
 ## Installation
